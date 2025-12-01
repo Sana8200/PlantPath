@@ -6,11 +6,11 @@
     "serve": "vite preview"
   },
   "devDependencies": {
-    "vite": "latest",
-    "@vitejs/plugin-react": "latest"
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest"
   },
   "dependencies": {
-    "firebase": "latest",
+    "firebase": "^12.6.0",
     "mobx": "latest",
     "mobx-react-lite": "latest",
     "react": "latest",

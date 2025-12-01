@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { observer } from "mobx-react-lite";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebaseConfig.js";
 import { LoginView } from "../views/loginView.jsx";
 
 export const LoginPresenter = observer(function LoginPresenter(props) {
@@ -8,10 +10,9 @@ export const LoginPresenter = observer(function LoginPresenter(props) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  function handleLogin() {
+  async function handleLogin() {
     setError(null);
 
-    // Basic validation
     if (!email || !password) {
       setError("Please fill in all fields.");
       return;
@@ -19,15 +20,34 @@ export const LoginPresenter = observer(function LoginPresenter(props) {
 
     setLoading(true);
 
-    // Firebase authentication 
-    console.log("Login attempt:", { email, password });
-    
-    setTimeout(() => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      // Success! Firebase auth state listener will handle the rest
+      console.log("Login successful!");
+    } catch (err) {
+      switch (err.code) {
+        case "auth/invalid-email":
+          setError("Invalid email address.");
+          break;
+        case "auth/user-not-found":
+          setError("No account found with this email.");
+          break;
+        case "auth/wrong-password":
+          setError("Incorrect password.");
+          break;
+        case "auth/invalid-credential":
+          setError("Invalid email or password.");
+          break;
+        case "auth/too-many-requests":
+          setError("Too many attempts. Please try again later.");
+          break;
+        default:
+          setError("Login failed. Please try again.");
+          console.error(err);
+      }
+    } finally {
       setLoading(false);
-      // Simulate login for testing UI flow
-      // Remove this when Firebase is integrated
-      alert("Login UI working! Firebase integration pending.");
-    }, 1000);
+    }
   }
 
   function handleSwitchToSignup() {

@@ -1,4 +1,4 @@
-import "../style.css";
+import "./loginSignupStyle.css";
 
 export function LoginView(props) {
   function handleSubmit(event) {
@@ -8,7 +8,7 @@ export function LoginView(props) {
 
   return (
     <div className="login-container">
-      <h2>Login to your Plant World</h2>
+      <h2>Path to Plant World</h2>
       
       {props.error && (
         <div className="error-message">{props.error}</div>
@@ -20,7 +20,7 @@ export function LoginView(props) {
           <input
             type="email"
             id="email"
-            placeholder="Enter your email"
+            placeholder="your@email.com"
             value={props.email}
             onChange={(e) => props.onEmailChange(e.target.value)}
             required
@@ -32,7 +32,7 @@ export function LoginView(props) {
           <input
             type="password"
             id="password"
-            placeholder="Enter your password"
+            placeholder="••••••••"
             value={props.password}
             onChange={(e) => props.onPasswordChange(e.target.value)}
             required
@@ -40,14 +40,14 @@ export function LoginView(props) {
         </div>
         
         <button type="submit" disabled={props.loading}>
-          {props.loading ? "Logging in..." : "Login"}
+          {props.loading ? "Signing in..." : "Sign In"}
         </button>
       </form>
       
       <p className="signup-link">
-        Don't have an account?{" "}
+        New to PlantPath?{" "}
         <span onClick={props.onSwitchToSignup} className="link">
-          Sign up
+          Create an account
         </span>
       </p>
     </div>

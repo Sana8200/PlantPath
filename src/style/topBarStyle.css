@@ -1,0 +1,28 @@
+/* TopBar */
+
+.topbar {
+    width: 100%;
+}
+
+.topbar-header {
+    background: #166534;
+    color: white;
+    padding: 18px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar-header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.topbar-nav {
+    background: white;
+    padding: 12px 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #e0e0e0;
+}

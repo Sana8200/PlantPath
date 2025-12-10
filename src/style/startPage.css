@@ -1,0 +1,36 @@
+/* Start/Welcome Page */
+
+.page-center {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.welcome-container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 50px 40px;
+  border-radius: 28px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  position: relative;
+  z-index: 10;
+}
+
+.welcome-icon {
+  font-size: 80px;
+}
+
+.welcome-title {
+  font-size: 36px;
+  color: #166534;
+  margin: 20px 0;
+}
+
+.welcome-text {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 18px;
+}

@@ -1,0 +1,29 @@
+/* Main Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+}
+
+
+/* For background using picture and blur component*/
+.blur-background {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 0 !important;
+}
+
+.blur-background canvas {
+  width: 100vw !important;
+  height: 100vh !important;
+  object-fit: cover !important;
+}

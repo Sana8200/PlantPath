@@ -1,0 +1,23 @@
+/* User Page */
+
+.user-page {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.user-card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-title {
+  color: #166534;
+  margin-bottom: 20px;
+}
+
+.user-email {
+  color: #666;
+}

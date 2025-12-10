@@ -1,0 +1,49 @@
+/* Search Results */
+
+.search-results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  padding: 20px;
+}
+
+.plant-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.plant-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.plant-card-image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+.plant-card-info {
+  padding: 12px;
+}
+
+.plant-card-name {
+  font-weight: 600;
+  color: #166534;
+  margin-bottom: 4px;
+}
+
+.plant-card-light {
+  font-size: 13px;
+  color: #666;
+}
+
+.search-empty {
+  text-align: center;
+  color: #888;
+  padding: 40px;
+}

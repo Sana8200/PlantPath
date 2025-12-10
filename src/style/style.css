@@ -11,8 +11,7 @@ body {
   min-height: 100vh;
 }
 
-
-/* For background using picture and blur component*/
+/* Blur background (react-blur) */
 .blur-background {
   position: fixed !important;
   top: 0 !important;
@@ -26,4 +25,15 @@ body {
   width: 100vw !important;
   height: 100vh !important;
   object-fit: cover !important;
+}
+
+/* Sidebar overlay */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
 }

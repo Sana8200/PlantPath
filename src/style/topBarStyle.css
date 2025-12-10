@@ -7,7 +7,7 @@
 .topbar-header {
     background: #166534;
     color: white;
-    padding: 18px 28px;
+    padding: 16px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,12 +15,12 @@
 
 .topbar-header h1 {
     margin: 0;
-    font-size: 24px;
+    font-size: 22px;
 }
 
 .topbar-nav {
-    background: white;
-    padding: 12px 20px;
+    background: #f9f9f9;
+    padding: 10px 20px;
     display: flex;
     gap: 10px;
     flex-wrap: wrap;

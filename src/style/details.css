@@ -1,0 +1,45 @@
+/* Details Sidebar */
+
+.details-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100vh;
+  background: white;
+  padding: 20px;
+  z-index: 101;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.details-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.details-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.details-title {
+  color: #166534;
+  margin: 15px 0 5px;
+}
+
+.details-latin {
+  color: #888;
+  font-style: italic;
+}
+
+.details-actions {
+  margin-top: 25px;
+}

@@ -26,10 +26,10 @@ function EyeOffIcon() {
 
 export function SignupView(props) {
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  function handleSubmit(e) {
+    e.preventDefault();
     props.onSignup();
   }
 
@@ -39,9 +39,9 @@ export function SignupView(props) {
         <div className="login-signup-card">
           <h2 className="login-signup-title">🌿 LeafKeeper</h2>
           <p className="login-signup-subtitle">Create your plant account</p>
-          
+
           {props.error && <div className="login-signup-error">{props.error}</div>}
-          
+
           <form onSubmit={handleSubmit}>
             <div className="login-signup-form-group">
               <label className="login-signup-label">Email</label>
@@ -54,7 +54,7 @@ export function SignupView(props) {
                 required
               />
             </div>
-            
+
             <div className="login-signup-form-group">
               <label className="login-signup-label">Password</label>
               <div className="login-signup-password-wrapper">
@@ -67,51 +67,36 @@ export function SignupView(props) {
                   minLength={6}
                   required
                 />
-                <button
-                  type="button"
-                  className="login-signup-password-toggle"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
+                <button type="button" className="login-signup-password-toggle" onClick={() => setShowPassword(!showPassword)}>
                   {showPassword ? <EyeIcon /> : <EyeOffIcon />}
                 </button>
               </div>
             </div>
-            
+
             <div className="login-signup-form-group">
               <label className="login-signup-label">Confirm Password</label>
               <div className="login-signup-password-wrapper">
                 <input
                   className="login-signup-input"
-                  type={showConfirmPassword ? "text" : "password"}
-                  placeholder="Repeat your password"
+                  type={showConfirm ? "text" : "password"}
+                  placeholder="Repeat password"
                   value={props.confirmPassword}
                   onChange={(e) => props.onConfirmPasswordChange(e.target.value)}
                   required
                 />
-                <button
-                  type="button"
-                  className="login-signup-password-toggle"
-                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                >
-                  {showConfirmPassword ? <EyeIcon /> : <EyeOffIcon />}
+                <button type="button" className="login-signup-password-toggle" onClick={() => setShowConfirm(!showConfirm)}>
+                  {showConfirm ? <EyeIcon /> : <EyeOffIcon />}
                 </button>
               </div>
             </div>
-            
+
             <div className="login-signup-submit">
-              <Button
-                text="Create Account"
-                type="submit"
-                loading={props.loading}
-                size="large"
-                fullWidth
-              />
+              <Button text="Create Account" type="submit" loading={props.loading} size="large" fullWidth />
             </div>
           </form>
-          
+
           <p className="login-signup-switch">
-            Already have an account?{" "}
-            <a onClick={props.onSwitchToLogin}>Sign in</a>
+            Already have an account? <a onClick={props.onSwitchToLogin}>Sign in</a>
           </p>
         </div>
       </div>

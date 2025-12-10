@@ -7,12 +7,5 @@ export const Start = observer(function StartRender(props) {
     window.location.hash = "#/login";
   }
 
-  return (
-    <div className="app-container">
-      <StartView onStartClick={handleStart} />
-    </div>
-  );
+  return <StartView onStartClick={handleStart} />;
 });
-
-
-

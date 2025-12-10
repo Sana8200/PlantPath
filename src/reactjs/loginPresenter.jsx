@@ -12,38 +12,22 @@ export const LoginPresenter = observer(function LoginPresenter(props) {
 
   async function handleLogin() {
     setError(null);
-
     if (!email || !password) {
       setError("Please fill in all fields.");
       return;
     }
 
     setLoading(true);
-
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      console.log("Login successful!");
       window.location.hash = "#/search";
     } catch (err) {
-      switch (err.code) {
-        case "auth/invalid-email":
-          setError("Invalid email address.");
-          break;
-        case "auth/user-not-found":
-          setError("No account found with this email.");
-          break;
-        case "auth/wrong-password":
-          setError("Incorrect password.");
-          break;
-        case "auth/invalid-credential":
-          setError("Invalid email or password.");
-          break;
-        case "auth/too-many-requests":
-          setError("Too many attempts. Please try again later.");
-          break;
-        default:
-          setError("Login failed. Please try again.");
-          console.error(err);
+      if (err.code === "auth/invalid-credential") {
+        setError("Invalid email or password.");
+      } else if (err.code === "auth/too-many-requests") {
+        setError("Too many attempts. Try again later.");
+      } else {
+        setError("Login failed. Please try again.");
       }
     } finally {
       setLoading(false);

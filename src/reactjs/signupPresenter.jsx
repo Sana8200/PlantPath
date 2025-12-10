@@ -25,24 +25,16 @@ export const SignupPresenter = observer(function SignupPresenter(props) {
     }
 
     setLoading(true);
-
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      console.log("Signup successful!");
+      window.location.hash = "#/search";
     } catch (err) {
-      switch (err.code) {
-        case "auth/email-already-in-use":
-          setError("An account with this email already exists.");
-          break;
-        case "auth/invalid-email":
-          setError("Invalid email address.");
-          break;
-        case "auth/weak-password":
-          setError("Password is too weak.");
-          break;
-        default:
-          setError("Signup failed. Please try again.");
-          console.error(err);
+      if (err.code === "auth/email-already-in-use") {
+        setError("Email already in use.");
+      } else if (err.code === "auth/invalid-email") {
+        setError("Invalid email address.");
+      } else {
+        setError("Signup failed. Please try again.");
       }
     } finally {
       setLoading(false);

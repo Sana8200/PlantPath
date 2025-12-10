@@ -5,16 +5,16 @@ import "/src/style/topBarStyle.css";
 
 export function TopBar(props) {
 
-  function handleBackToSearchACB() {
+  function goToSearch() {
     window.location.hash = "#/search";
   }
 
-  function handleBackToUserACB() {
-    window.location.hash = "#/user";
+  function goToCollections() {
+    window.location.hash = "#/collections";
   }
 
-  function handleBackToCollectionsACB() {
-    window.location.hash = "#/collections";
+  function goToUser() {
+    window.location.hash = "#/user";
   }
 
   async function handleLogout() {
@@ -23,20 +23,20 @@ export function TopBar(props) {
     } catch (error) {
       console.error("Logout error:", error);
     }
-    window.location.hash = "#/login";   // Back to login or Welcom ?
+    window.location.hash = "#/";   // go back to welcome or login ?
   }
 
   return (
     <div className="topbar">
       <header className="topbar-header">
         <h1>🌿 LeafKeeper</h1>
-        <Button text="Logout" onClick={handleLogout} color="red" size="medium" />
+        <Button text="Logout" onClick={handleLogout} color="red" size="medium"  />
       </header>
 
       <nav className="topbar-nav">
-        <Button text="🔍 Discover" onClick={handleBackToSearchACB} size="medium" />
-        <Button text="📚 My Collections" onClick={handleBackToCollectionsACB} size="medium" />
-        <Button text="👤 User" onClick={handleBackToUserACB} size="medium" />
+        <Button text="🔍 Discover" onClick={goToSearch} size="medium" />
+        <Button text="📚 My Collections" onClick={goToCollections} size="medium" />
+        <Button text="👤 Profile" onClick={goToUser} size="medium" />
       </nav>
     </div>
   );

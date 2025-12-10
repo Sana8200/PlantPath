@@ -1,17 +1,25 @@
+import "/src/style/searchResults.css";
+
 export function SearchResultsView(props) {
+
+  function handlePlantClick(plant) {
+    props.onPlantSelect(plant);
+  }
+
   function renderPlantCB(plant) {
     return (
       <div
         key={plant}
-        style={{ border: "1px solid black", margin: 10, padding: 10 }}
+        className="plant-card"
+        onClick={() => handlePlantClick(plant)}
       >
-        <div>{plant["Common name (fr.)"]}</div>
-        <img
+        <div className="plant-card-name">{plant["Common name (fr.)"]}</div>
+        <img className="plant-card-image"
           src={plant.Img}
           height={100}
         />
-        <div>
-          <strong>Sun instructions:</strong>
+        <div className="plant-card-info">
+          <strong className="plant-card-light">Sun instructions:</strong>
           {plant["Light ideal"]}
         </div>
         <select>
@@ -24,5 +32,7 @@ export function SearchResultsView(props) {
     );
   }
 
-  return <div>{(props.searchResults || []).map(renderPlantCB)}</div>;
+  return <div className="search-results-grid">{(props.searchResults || []).map(renderPlantCB)}</div>;
 }
+
+

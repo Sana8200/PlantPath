@@ -1,6 +1,6 @@
 import { signOut } from "firebase/auth";
 import { auth } from "../firebaseConfig.js";
-import { Button } from "/src/components/button.jsx";
+import { Button } from "/src/style/button.jsx";
 import "/src/style/topBarStyle.css";
 
 export function TopBar(props) {
@@ -30,7 +30,7 @@ export function TopBar(props) {
     <div className="topbar">
       <header className="topbar-header">
         <h1>🌿 LeafKeeper</h1>
-        <Button text="Logout" onClick={handleLogout} color="red" size="medium"  />
+        <Button text="Logout" onClick={handleLogout} color="red" outline={true}  size="medium"  />
       </header>
 
       <nav className="topbar-nav">

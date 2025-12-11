@@ -1,4 +1,4 @@
-import { Button } from "/src/components/button.jsx";
+import { Button } from "/src/style/button.jsx";
 import "/src/style/details.css";
 
 export function DetailsView(props) {

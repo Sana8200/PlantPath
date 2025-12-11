@@ -1,31 +1,62 @@
-import Blur from "react-blur";
-import { Button } from "/src/components/button.jsx";
-import "/src/style/style.css";
-import "/src/style/startPage.css";
+import { Button } from "/src/style/button.jsx";
+import "/src/style/authLayout.css"; 
 
 export function StartView(props) {
   return (
-    <Blur img="src/style/backgroundStart.jpg" blurRadius={4} enableStyles className="blur-background">
-      <div className="page-center">
-        <div className="welcome-container">
-          <div className="welcome-icon">🌿</div>
-          <h1 className="welcome-title">Welcome to LeafKeeper!</h1>
-          <p className="welcome-text">
+    <div className="split-screen-container">
+      <div className="auth-left">
+        <div className="auth-overlay"></div>
+        <div className="auth-left-content">
+          <div className="auth-logo">🌿</div>
+          <h1 className="auth-title">Welcome to LeafKeeper</h1>
+          <p className="auth-description">
             Your digital gardening companion. Search for plants, create
-            collections, and keep track of your plant care schedule.
+            collections, and keep track of your plant care schedule effortlessly.
           </p>
-          <Button
-            text="Get Started 🌱"
-            onClick={props.onStartClick}
-            size="large"
-          />
         </div>
       </div>
-    </Blur>
+
+      {/* Right Side - Action Buttons */}
+      <div className="auth-right">
+        <div>
+          <h2 className="get-start-tite">Get Started</h2>
+
+          <div className="buttons-start">
+
+            {/* Login Button */}
+            <Button
+              text="Log In"
+              onClick={() => window.location.hash = "#/login"}
+              size="large"
+              color = "light"
+              outline={true} 
+              fullWidth
+            />
+
+            {/* Signup Button */}
+            <Button
+              text="Create Account"
+              onClick={() => window.location.hash = "#/signup"}
+              size="large" 
+              color = "light"
+              outline={true}  
+              fullWidth
+            />
+            <div>
+                <button 
+                  className="withoutAccount"
+                  onClick={() => window.location.hash = "#/search"}
+                  >
+                  Continue without an account
+                </button>
+            </div>
+      
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
-
-
 
 
 

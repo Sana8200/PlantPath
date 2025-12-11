@@ -1,28 +1,63 @@
-/* TopBar */
 
+/* TopBar Container */
 .topbar {
     width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+    font-family: 'Segoe UI', Roboto, sans-serif;
 }
 
+/* Header Section (Logo & Logout) */
 .topbar-header {
-    background: #166534;
+    background: linear-gradient(120deg, #052e16 0%, #166534 60%, #15803d 100%);
     color: white;
-    padding: 16px 24px;
+    font-family:'Times New Roman', Times, serif;
+    padding: 25px 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .topbar-header h1 {
     margin: 0;
     font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    cursor: default;
+    
 }
 
+/* Navigation Section */
 .topbar-nav {
-    background: #f9f9f9;
-    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(8px);
+    padding: 12px 32px;
     display: flex;
-    gap: 10px;
+    gap: 16px; 
+    align-items: center;
     flex-wrap: wrap;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--border-color);
+    justify-content: center;
+}
+
+
+/* Mobile*/
+@media (max-width: 768px) {
+    .topbar-header {
+        padding: 12px 20px;
+    }
+    .topbar-header h1 {
+        font-size: 20px;
+    }
+    .topbar-nav {
+        padding: 12px 16px;
+        gap: 10px;
+    }
 }

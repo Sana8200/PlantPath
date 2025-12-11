@@ -1,0 +1,355 @@
+.split-screen-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: white;
+}
+
+/* --- LEFT SIDE: Gradient & Image --- */
+.auth-left {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px;
+    color: #e7f4e8d9;
+    background-image: url('./backgroundStart.jpg');
+    background-size: cover;
+    background-position: center;
+    box-shadow: 20px 0 50px rgba(0,0,0,0.4);
+    z-index: 10;
+}
+
+.auth-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            rgba(22, 101, 52, 0.85) 0%,
+            rgba(21, 128, 61, 0.75) 100%);
+    backdrop-filter: blur(2px);
+    z-index: 1;
+}
+
+.auth-left-content {
+    position: relative;
+    z-index: 2;
+    max-width: 480px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Logo & Text styling remains the same... */
+.auth-logo {
+    font-size: 80px;
+    margin-bottom: 24px;
+    display: block;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.auth-logo:hover {
+    transform: translateY(-5px) rotate(5deg);
+}
+
+.auth-title {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    font-family:'Times New Roman', Times, serif;
+}
+
+.auth-description {
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.95;
+    font-weight: 500;
+    font-family:'Times New Roman', Times, serif;
+}
+
+/* --- RIGHT SIDE: Form Container --- */
+.auth-right {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background: linear-gradient(135deg, #83ea7cca 0%, #307453 50%, #5cb261d9 100%);
+    overflow-y: auto;
+    position: relative;
+    z-index: 5; 
+}
+
+
+.auth-form-container {
+    width: 100%;
+    max-width: 400px;
+    height: 600px;
+    max-height: 800px;
+    background: rgba(255, 255, 255, 0.95); 
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 10px 25px -5px rgba(56, 179, 103, 0.15);
+    animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    text-align: center;
+
+}
+
+.buttons-start{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+.get-start-tite{
+    font-size: 32px;
+    font-weight: 800;
+    color:#e7f4e8d9;
+    margin-bottom: 8px;
+    text-align: center;
+    text-shadow: #307453;
+    font-family:'Times New Roman', Times, serif;
+}
+
+
+
+
+
+
+/* Headings within the form */
+.login-signup-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--primary-dark);
+    margin-bottom: 8px;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+.login-signup-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Form Groups */
+.login-signup-form-group {
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.login-signup-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--primary-dark);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Modern Input Style */
+.login-signup-input {
+    width: 100%;
+    padding: 14px 16px;
+    /* Taller touch target */
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 16px;
+    background: #fff;
+    color: var(--text-main);
+    transition: all 0.2s ease-in-out;
+}
+
+.login-signup-input::placeholder {
+    color: #a0aec0;
+}
+
+/* Hover state for inputs */
+.login-signup-input:hover {
+    border-color: #cbd5e0;
+}
+
+/* Focus state for inputs */
+.login-signup-input:focus {
+    outline: none;
+    border-color: var(--primary-main);
+    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.1);
+    transform: translateY(-1px);
+}
+
+/* Password Toggle Wrapper */
+.login-signup-password-wrapper {
+    position: relative;
+}
+
+.login-signup-password-wrapper .login-signup-input {
+    padding-right: 50px;
+    /* Space for the eye icon */
+}
+
+/* The Eye Icon Button */
+.login-signup-password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s, color 0.2s;
+    color: #a0aec0; 
+}
+
+.login-signup-password-toggle:hover {
+    background-color: #f7fafc;
+    color: var(--primary-main); 
+}
+
+/* The SVG Icon itself */
+.login-signup-password-toggle svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor; 
+    fill: none;           
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.login-signup-password-toggle:hover svg {
+    stroke: var(--primary-main);
+}
+
+/* Error Messages */
+.login-signup-error {
+    background: #fff5f5;
+    border: 1px solid #feb2b2;
+    border-left: 4px solid #f56565;
+    color: #c53030;
+    padding: 16px;
+    border-radius: var(--radius-md);
+    margin-bottom: 24px;
+    text-align: left;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Submit Button Area */
+.login-signup-submit {
+    margin-top: 32px;
+}
+
+/* Switch Link (Bottom text) */
+.login-signup-switch {
+    margin-top: 32px;
+    color: var(--text-muted);
+    font-size: 14px;
+    text-align: center;
+}
+
+.login-signup-switch a {
+    color: var(--primary-main);
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.login-signup-switch a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+
+.withoutAccount {
+    background: none;
+    border: none;
+    color: rgba(218, 219, 218, 0.85);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 8px;
+    transition: all 0.2s ease;
+    opacity: 0.9;
+    margin-top: 16px;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.withoutAccount:hover {
+    opacity: 1;
+    text-decoration: underline;
+    color: rgb(162, 176, 163); /* Brightens the text on hover */
+}
+
+
+
+/* ANIMATIONS & RESPONSIVE */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Layout */
+@media (max-width: 900px) {
+    .split-screen-container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+    .auth-left {
+        flex: none;
+        height: 300px;
+        /* Fixed height header on mobile */
+        padding: 30px;
+    }
+    .auth-logo {
+        font-size: 40px;
+        margin-bottom: 8px;
+    }
+
+    .auth-title {
+        font-size: 28px;
+        margin-bottom: 8px;
+    }
+    .auth-right {
+        flex: 1;
+        padding: 40px 24px;
+    }
+    /* On mobile*/
+    .auth-form-container {
+        padding: 30px;
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-md);
+    }
+}

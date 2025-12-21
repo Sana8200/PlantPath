@@ -1,5 +1,5 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import { getPlantFromTrefle, getPlantByID, doPlantSearchByCategory } from "./api/getPlants";
+import { getPlantFromTrefle, getPlantByID, doPlantSearchByCategory } from "../api/getPlants";
 
 class LeafKeeperModel {
     constructor(userPlants = [], user = null) {

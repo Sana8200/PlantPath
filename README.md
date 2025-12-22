@@ -67,6 +67,7 @@ I am actively working on this project. Here are some of the features I plan to i
 ## 👤 Author
 
 **Sana Monhaseri**
+
 **Part of group project for Interaction-Porgramming-Dynamic-Web course at KTH**
 
 This is a personal project created for educational purposes and portfolio demonstration. Feel free to reach out if you have questions about the code!

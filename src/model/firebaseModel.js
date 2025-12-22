@@ -16,11 +16,11 @@ const db = getFirestore(app);
 let disposers = [];
 
 // Connect model to Firestore persistence
-export function connectToPersistence(leafKeeperModel, metaDataModel) {
+export function connectToPersistence(PlantPathModel, metaDataModel) {
   onAuthChange(logInOrOutHandlingACB);
   function logInOrOutHandlingACB(user) {
     if (user) {
-      leafKeeperModel.setReadyState(false);
+      PlantPathModel.setReadyState(false);
       metaDataModel.setReadyState(false);
 
       const userDoc = doc(db, "users", user.uid);
@@ -38,7 +38,7 @@ export function connectToPersistence(leafKeeperModel, metaDataModel) {
 
       /* FUNCTIONS */
       /**
-       * Sets the initializing data for the leafkeeper model, with the data from the database;
+       * Sets the initializing data for the PlantPath model, with the data from the database;
        * @param {*} result The result from the getDoc function.
        */
       function setInitDataACB(result) {
@@ -80,15 +80,15 @@ export function connectToPersistence(leafKeeperModel, metaDataModel) {
                 userData.userCollections[key][plant] = convertToAPIData(resultData[key][plant]);
                 userData.wateringHistory[key][plant] = resultData[key][plant].wateredDates;
               }
-              leafKeeperModel.createCollection(key);
+              PlantPathModel.createCollection(key);
               Object.keys(resultData[key]).forEach(savePerPlant);
             }
           }
           if (resultData) {
             Object.keys(resultData).forEach(savePerCollectionCB);
-            leafKeeperModel.setUserData(userData);
+            PlantPathModel.setUserData(userData);
           }
-          leafKeeperModel.setReadyState(true);
+          PlantPathModel.setReadyState(true);
         } catch (error) {
           console.error("Error initialising LKM values: ", error);
         }
@@ -130,12 +130,12 @@ export function connectToPersistence(leafKeeperModel, metaDataModel) {
       }
 
       /**
-       * Gets the persistant parts of the leafkeeper model.
+       * Gets the persistant parts of the PlantPath model.
        * @returns An array of all the persistant props.
        */
       function getPersistPropsLKMACB() {
         const allPlants = [];
-        for (const collection of Object.values(leafKeeperModel.userCollections)) {
+        for (const collection of Object.values(PlantPathModel.userCollections)) {
           for (const plant of Object.values(collection)) {
             allPlants.push(
               plant.id,
@@ -153,7 +153,7 @@ export function connectToPersistence(leafKeeperModel, metaDataModel) {
             );
           }
         }
-        for (const collection of Object.values(leafKeeperModel.wateringHistory)) {
+        for (const collection of Object.values(PlantPathModel.wateringHistory)) {
           for (const plant of Object.values(collection)) {
             allPlants.push(plant.length);
           }
@@ -251,21 +251,21 @@ export function connectToPersistence(leafKeeperModel, metaDataModel) {
       }
 
       /**
-       * Saves the leafkeeper model to the database.
+       * Saves the PlantPath model to the database.
        */
       function saveModelLKMACB() {
         let success = false;
-        if (leafKeeperModel.ready == true) {
+        if (PlantPathModel.ready == true) {
           const saveObj = {};
           function saveToCollectionsCB(collKey) {
             saveObj[collKey] = {};
-            for (const plant in leafKeeperModel.userCollections[collKey]) {
-              saveObj[collKey][plant] = leafKeeperModel.userCollections[collKey][plant].makeSaveableObject();
-              saveObj[collKey][plant]["wateredDates"] = leafKeeperModel.wateringHistory[collKey][plant] || [];
+            for (const plant in PlantPathModel.userCollections[collKey]) {
+              saveObj[collKey][plant] = PlantPathModel.userCollections[collKey][plant].makeSaveableObject();
+              saveObj[collKey][plant]["wateredDates"] = PlantPathModel.wateringHistory[collKey][plant] || [];
             }
           }
           try {
-            Object.keys(leafKeeperModel.userCollections).forEach(saveToCollectionsCB);
+            Object.keys(PlantPathModel.userCollections).forEach(saveToCollectionsCB);
             if (Object.keys(saveObj).length > 0) {
               setDoc(userDoc, saveObj, { merge: false });
               success = true;
@@ -300,9 +300,9 @@ export function connectToPersistence(leafKeeperModel, metaDataModel) {
       }
 
       function setUpSideEffectLKMACB() {
-        if (leafKeeperModel.sideEffectsSetUp == false) {
+        if (PlantPathModel.sideEffectsSetUp == false) {
           disposers.push(reaction(getPersistPropsLKMACB, saveModelLKMACB));
-          leafKeeperModel.setSESUState(true);
+          PlantPathModel.setSESUState(true);
         }
       }
 
@@ -339,9 +339,9 @@ export function connectToPersistence(leafKeeperModel, metaDataModel) {
         disposers[i]();
       }
       disposers = [];
-      leafKeeperModel.setReadyState(false); //makes sure it does not save the cleared model to db
-      leafKeeperModel.resetUserData();
-      leafKeeperModel.setSESUState(false);
+      PlantPathModel.setReadyState(false); //makes sure it does not save the cleared model to db
+      PlantPathModel.resetUserData();
+      PlantPathModel.setSESUState(false);
 
       metaDataModel.setReadyState(false);
       metaDataModel.clearData();
@@ -349,7 +349,7 @@ export function connectToPersistence(leafKeeperModel, metaDataModel) {
     }
   }
 
-  if (leafKeeperModel.user) {
-    logInOrOutHandlingACB(leafKeeperModel.user);
+  if (PlantPathModel.user) {
+    logInOrOutHandlingACB(PlantPathModel.user);
   }
 }

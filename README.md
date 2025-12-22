@@ -1,17 +1,72 @@
-## Project Leafkeeper (plant care and health)
+# 🌿 LeafKeeper
 
-### Short description of your project
+**LeafKeeper** is a personal web application project I am building to help plant enthusiasts discover, track, and manage their houseplant collections.
 
-LeafKeeper is an app to help you take care of your plants. When you create an account on LeafKeeper you can start tracking your home plants, they can be stored in collections based on which room they are in your home. You can also make wishlists for plants you want to aquire and discover new favorites in the discover page. Plants in your collections and plants you find by searching for them will have care instructions, how much water they need, the temperature they thrive in, how much sunlight, how much pruning they need and much more details about the plant. For everyone that forgets to water your plants, LeafKeeper will give you reminders such that your plants never die again.
+This project was developed to practice and demonstrate advanced **React** patterns, specifically the **Model-View-Presenter (MVP)** architecture, along with **MobX** for state management and **Firebase** for real-time data persistence.
 
-### What you have done
+> 🚧 **Status:** This project is currently in active development. I am constantly working on improving the features and UI.
 
-We have so far set up the login and user functionality with storage in firebase There is a login and a signup view. We also have the skeleton of the model and calls to the houseplants2 API. You can also switch between tabs in the app but so far the different tabs are just stumps. We also have the navigation between pages of the app.
+## ✨ Key Features
 
-### What you still plan to do
+### 🪴 Personal Plant Management
+* **Custom Collections:** Users can create and manage their own collections (e.g., "Bedroom Plants").
+* **Smart Watering Tracker:** Calculates specific watering schedules for each plant.
+* **Visual Alerts:** Color-coded badges instantly show if a plant is "Thirsty" (Urgent), needs water "Soon," or is "OK."
 
-We are planning to populate the model with real data, right now we are using just one API example. We will also add styling to all pages of the app. We only have the skeletons of each page when logged in to the app currently so we will add all the content. We also need to add the reminder functionality and make the tabs from the top bar work. We will use another API to replace the pictures from the houseplants2 API since they are not the best. We will also add the search functionality. We plan to add a feature for commenting on and liking plants such that other users can discover plants and get tips for handling them. We also need to add the reminder functionality.
+### 🔍 Discovery & Data
+* **Search Functionality:** Integrated search for finding plants by common or Latin names.
+* **Care Instructions:** Detailed views showing light requirements, watering intervals, and pruning tips.
+* **Trending Section:** Displays popular plants based on user interactions.
 
-### Your project file structure (short description/purpose of each file)
+### 🗣️ Interaction
+* **Rating System:** A custom 1-10 rating logic that calculates average scores dynamically.
+* **Comments:** A section for users to leave notes or feedback on specific plant species.
 
-In the folder reactjs we have all the presenters as well as the root. We mount the app in index with the help of ReactRoot which uses all of the presenters needed. In the folder views we are keeping all of the views. We also have some files for the firebase configuration. In the api folder we have code for making api calls and resolving promises. The leafKeeperModel.js is our main model of the app which keeps track of the state of our app.
+## 🛠️ Tech Stack
+
+I chose this stack to ensure a scalable and maintainable codebase:
+
+* **Frontend:** React.js, Vite
+* **State Management:** MobX (Reactive state)
+* **Architecture:** Model-View-Presenter (MVP)
+* **Styling:** CSS3 (with Custom Properties for theming)
+* **Backend:** Firebase (Firestore & Authentication)
+
+## 🚀 How to Run Locally
+
+If you want to check out the code or run it on your machine:
+
+1.  **Clone the repo**
+    ```bash
+    git clone [https://github.com/yourusername/leafkeeper.git](https://github.com/yourusername/leafkeeper.git)
+    cd leafkeeper
+    ```
+
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Firebase Setup**
+    * You will need a `src/firebaseConfig.js` file with your own Firebase credentials to run the backend features.
+
+4.  **Start the server**
+    ```bash
+    npm run dev
+    ```
+
+## 🗺️ Future Roadmap
+
+I am actively working on this project. Here are some of the features I plan to implement next:
+
+* [ ] **Refining the Rating Algorithm:** Improving how average scores are calculated and stored.
+* [ ] **Enhanced Dark Mode:** Polishing the visual theme toggles for better accessibility.
+* [ ] **User Profiles:** Allowing users to customize their profile and view public collections.
+* [ ] **Photo Uploads:** Allowing users to upload photos of their own plants.
+
+## 👤 Author
+
+**Sana Monhaseri**
+**Part of group project for Interaction-Porgramming-Dynamic-Web course at KTH**
+
+This is a personal project created for educational purposes and portfolio demonstration. Feel free to reach out if you have questions about the code!

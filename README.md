@@ -1,6 +1,6 @@
-# 🌿 LeafKeeper
+# 🌿 PlantPath
 
-**LeafKeeper** is a personal web application project I am building to help plant enthusiasts discover, track, and manage their houseplant collections.
+**PlantPath** is a personal web application project I am building to help plant enthusiasts discover, track, and manage their houseplant collections.
 
 This project was developed to practice and demonstrate advanced **React** patterns, specifically the **Model-View-Presenter (MVP)** architecture, along with **MobX** for state management and **Firebase** for real-time data persistence.
 

@@ -10,7 +10,7 @@ This project was developed to practice and demonstrate advanced **React** patter
 
 ### 🪴 Personal Plant Management
 * **Custom Collections:** Users can create and manage their own collections (e.g., "Bedroom Plants").
-* **Smart Watering Tracker:** Calculates specific watering schedules for each plant.
+* **Smart Watering Tracker:** Specific watering schedules for each plant.
 * **Visual Alerts:** Color-coded badges instantly show if a plant is "Thirsty" (Urgent), needs water "Soon," or is "OK."
 
 ### 🔍 Discovery & Data

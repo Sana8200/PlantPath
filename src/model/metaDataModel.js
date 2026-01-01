@@ -1,26 +1,36 @@
+import { makeAutoObservable, runInAction } from "mobx";
+import { Plant } from "/src/model/plant.js";
 
+class MetaDataModel {
+  comments = {}; //A dictionary that acts as an array, but with the plant ID as the index.
+  scores = []; //A sorted array (by plant score) that contains plant scores and ratings.
+  currentComment = ""; //Current comment field, used to update comment display in view
+  currentRating = 1; //Current rating field, used to update rating display in view
+  ready = false; //If the model is currently ready to read from.
+  ratedPlants = {};
+  sideEffectsSetUp = false;
 
-class MetaDataModel{
-    comments = {};
-    scores = [];
-    currentComment = "";
-    currentRating = 1;
-    ready = false;
-    sideEffectSetup = false;
-
-    constructor() {
+  constructor() {
     makeAutoObservable(this);
   }
 
-  setReadySate(state){
+  /**
+   * Sets the ready or not-state.
+   * @param {Boolean} state Either true or false.
+   */
+  setReadyState(state) {
     this.ready = state;
   }
 
-  setSideEffectState(state){
-    this.sideEffectSetup = state;
+  /**
+   * Sets the SESU state.
+   * @param {Boolean} state Either true or false.
+   */
+  setSESUState(state) {
+    this.sideEffectsSetUp = state;
   }
 
-   /**
+  /**
    * INIT FUNCTION:
    * Sets a comment object array to its key in the dictionary.
    * @param {String} key The plant ID.
@@ -47,7 +57,6 @@ class MetaDataModel{
     }
     this.comments[key] = result;
   }
-
 
   /**
    * Sets all plants a user has rated from DB info
@@ -319,5 +328,4 @@ class MetaDataModel{
 }
 
 export const metaDataModel = new MetaDataModel();
-
 

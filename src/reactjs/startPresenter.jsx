@@ -1,11 +1,24 @@
-import { StartView } from "../views/startView";
 import { observer } from "mobx-react-lite";
+import { StartView } from "../views/startView.jsx";
 
-export const Start = observer(function StartRender(props) {
-  
-  function handleStart() {
-    window.location.hash = "#/login";
-  }
+export const Start = observer(function StartPresenter({ model }) {
+    function handleLoginClick() {
+        window.location.hash = "#/login";
+    }
 
-  return <StartView onStartClick={handleStart} />;
+    function handleSignupClick() {
+        window.location.hash = "#/signup";
+    }
+
+    function handleContinueWithoutAccount() {
+        window.location.hash = "#/search";
+    }
+
+    return (
+        <StartView
+            onLoginClick={handleLoginClick}
+            onSignupClick={handleSignupClick}
+            onContinueWithoutAccount={handleContinueWithoutAccount}
+        />
+    );
 });

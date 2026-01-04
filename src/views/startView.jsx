@@ -1,5 +1,5 @@
-import { Button } from "/src/style/button.jsx";
-import "/src/style/authLayout.css"; 
+import { Button } from "/src/components/button.jsx";
+import "/src/style/authLayout.css";
 
 export function StartView(props) {
   return (
@@ -16,128 +16,38 @@ export function StartView(props) {
         </div>
       </div>
 
-      {/* Right Side - Action Buttons */}
       <div className="auth-right">
         <div>
           <h2 className="get-start-tite">Get Started</h2>
 
           <div className="buttons-start">
-
-            {/* Login Button */}
             <Button
               text="Log In"
-              onClick={() => window.location.hash = "#/login"}
+              onClick={props.onLoginClick}
               size="large"
-              color = "light"
-              outline={true} 
+              color="light"
+              outline={true}
               fullWidth
             />
 
-            {/* Signup Button */}
             <Button
               text="Create Account"
-              onClick={() => window.location.hash = "#/signup"}
-              size="large" 
-              color = "light"
-              outline={true}  
+              onClick={props.onSignupClick}
+              size="large"
+              color="light"
+              outline={true}
               fullWidth
             />
-            <div>
-                <button 
-                  className="withoutAccount"
-                  onClick={() => window.location.hash = "#/search"}
-                  >
-                  Continue without an account
-                </button>
-            </div>
-      
+
+            <button
+              className="withoutAccount"
+              onClick={props.onContinueWithoutAccount}
+            >
+              Continue without an account
+            </button>
           </div>
         </div>
       </div>
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

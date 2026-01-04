@@ -137,8 +137,7 @@ export function CollectionsPage(props) {
                                     type="date"
                                     className="c-date-input"
                                     value={lastWatered || ""}
-                                    onChange={(e) =>
-                                      props.onWateredDateChange(collectionName, plantId, e.target.value)}
+                                    onChange={(e) => props.onWateredDateChange(collectionName, plantId, e.target.value)}
                                     onClick={(e) => e.stopPropagation()}
                                   />
                                 </div>

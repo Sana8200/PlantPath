@@ -20,7 +20,7 @@
     background-image: url('./backgroundStart.jpg');
     background-size: cover;
     background-position: center;
-    box-shadow: 20px 0 50px rgba(0,0,0,0.4);
+    box-shadow: 20px 0 50px rgba(0, 0, 0, 0.4);
     z-index: 10;
 }
 
@@ -60,7 +60,7 @@
     margin-bottom: 20px;
     line-height: 1.1;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .auth-description {
@@ -68,12 +68,12 @@
     line-height: 1.6;
     opacity: 0.95;
     font-weight: 500;
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 /* --- RIGHT SIDE: Form Container --- */
 .auth-right {
-    flex: 1; 
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -82,7 +82,7 @@
     background: linear-gradient(135deg, #83ea7cca 0%, #307453 50%, #5cb261d9 100%);
     overflow-y: auto;
     position: relative;
-    z-index: 5; 
+    z-index: 5;
 }
 
 
@@ -91,7 +91,7 @@
     max-width: 400px;
     height: 600px;
     max-height: 800px;
-    background: rgba(255, 255, 255, 0.95); 
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     padding: 40px;
     border-radius: 24px;
@@ -101,27 +101,23 @@
 
 }
 
-.buttons-start{
+.buttons-start {
     display: flex;
     flex-direction: column;
     gap: 16px;
     margin-bottom: 20px;
     margin-top: 50px;
 }
-.get-start-tite{
+
+.get-start-tite {
     font-size: 32px;
     font-weight: 800;
-    color:#e7f4e8d9;
+    color: #e7f4e8d9;
     margin-bottom: 8px;
     text-align: center;
     text-shadow: #307453;
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
 }
-
-
-
-
-
 
 /* Headings within the form */
 .login-signup-title {
@@ -211,20 +207,20 @@
     justify-content: center;
     border-radius: 50%;
     transition: background-color 0.2s, color 0.2s;
-    color: #a0aec0; 
+    color: #a0aec0;
 }
 
 .login-signup-password-toggle:hover {
     background-color: #f7fafc;
-    color: var(--primary-main); 
+    color: var(--primary-main);
 }
 
 /* The SVG Icon itself */
 .login-signup-password-toggle svg {
     width: 20px;
     height: 20px;
-    stroke: currentColor; 
-    fill: none;           
+    stroke: currentColor;
+    fill: none;
     stroke-width: 2px;
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -288,22 +284,22 @@
     transition: all 0.2s ease;
     opacity: 0.9;
     margin-top: 16px;
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .withoutAccount:hover {
     opacity: 1;
     text-decoration: underline;
-    color: rgb(162, 176, 163); /* Brightens the text on hover */
+    color: rgb(162, 176, 163);
+    /* Brightens the text on hover */
 }
-
-
 
 /* ANIMATIONS & RESPONSIVE */
 @keyframes fadeIn {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -314,6 +310,7 @@
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -327,12 +324,14 @@
         height: auto;
         min-height: 100vh;
     }
+
     .auth-left {
         flex: none;
         height: 300px;
         /* Fixed height header on mobile */
         padding: 30px;
     }
+
     .auth-logo {
         font-size: 40px;
         margin-bottom: 8px;
@@ -342,10 +341,12 @@
         font-size: 28px;
         margin-bottom: 8px;
     }
+
     .auth-right {
         flex: 1;
         padding: 40px 24px;
     }
+
     /* On mobile*/
     .auth-form-container {
         padding: 30px;

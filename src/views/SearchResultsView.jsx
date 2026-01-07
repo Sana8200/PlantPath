@@ -1,4 +1,4 @@
-import { PlantCard } from "../components/PlantCard";
+import { PlantCard } from "/src/components/PlantCard.jsx";
 import "/src/style/search.css";
 
 export function SearchResultsView(props) {

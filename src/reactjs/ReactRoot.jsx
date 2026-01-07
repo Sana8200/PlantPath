@@ -55,14 +55,14 @@ function makeRouter(model, metaDataModel) {
     ]);
 }
 
-export const ReactRoot = observer(function ReactRoot({ leafKeeperModel, metaDataModel }) {
+export const ReactRoot = observer(function ReactRoot({ plantPathModel, metaDataModel }) {
     const [loading, setLoading] = useState(true);
-    const router = makeRouter(leafKeeperModel, metaDataModel);
+    const router = makeRouter(plantPathModel, metaDataModel);
 
     // listen for auth changes and update the model's user
     useEffect(() => {
         const unsubscribe = onAuthChange((firebaseUser) => {
-            leafKeeperModel.setUser(firebaseUser);
+            plantPathModel.setUser(firebaseUser);
             setLoading(false);
         });
 
@@ -75,7 +75,7 @@ export const ReactRoot = observer(function ReactRoot({ leafKeeperModel, metaData
 
     return (
         <>
-            <Details model={leafKeeperModel} metaDataModel={metaDataModel} />
+            <Details model={plantPathModel} metaDataModel={metaDataModel} />
             <RouterProvider router={router} />
         </>
     );

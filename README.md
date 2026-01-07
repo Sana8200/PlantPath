@@ -38,7 +38,7 @@ If you want to check out the code or run it on your machine:
 
 1.  **Clone the repo**
     ```bash
-    git clone [https://github.com/yourusername/leafkeeper.git](https://github.com/yourusername/leafkeeper.git)
+    git clone ...
     cd leafkeeper
     ```
 

@@ -247,4 +247,4 @@ class PlantPathModel {
   }
 }
 
-export const PlantPathModel = new PlantPathModel();
+export const plantPathModel = new PlantPathModel();

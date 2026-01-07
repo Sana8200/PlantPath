@@ -1,0 +1,175 @@
+/* ----- Search Form Container ----- */
+.search-form {
+    display: flex;
+    gap: 12px;
+    padding: 15px;
+    background: linear-gradient(to bottom, #084f26 0%, rgba(240, 253, 244, 0.8) 100%);
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.search-input-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-input {
+    width: 100%;
+    padding: 14px 24px;
+    border: 2px solid #e2e8f0;
+    border-radius: 50px;
+    font-size: 1rem;
+    color: #2d3748;
+    background-color: #f8fafc;
+    transition: all 0.2s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.15);
+}
+
+/* Error message below input */
+.search-validation-error {
+    margin-top: 6px;
+    margin-left: 12px;
+    font-size: 0.9rem;
+    color: #9a0a0a;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.input-error {
+    border-color: #e53e3e;
+    background-color: #fff5f5;
+}
+
+/* ----- Search Results Grid ----- */
+.search-results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 24px;
+    padding: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ----- Plant Card Wrapper (The Grid Item) ----- */
+.plant-card-wrapper {
+    background: #eaf0ea;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+.plant-card-wrapper:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    border-color: #4CAF50;
+}
+
+/* ----- Empty & Default States ----- */
+.search-no-results {
+    text-align: center;
+    color: #718096;
+    padding: 80px 20px;
+    font-size: 1.1rem;
+    background: #ffffff;
+    border-radius: 12px;
+    margin: 32px;
+    border: 2px dashed #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.default-search-state {
+    padding-bottom: 40px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.popular-search {
+    text-align: center;
+    margin: 40px 0 20px;
+    color: #166534;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-hint {
+    text-align: center;
+    color: #2d3748;
+    font-size: 1.1rem;
+    margin-top: 60px;
+    font-weight: 500;
+}
+
+.theme-toggle-btn {
+    background: var(--bg-input);
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.theme-toggle-btn:hover {
+    border-color: var(--primary-main);
+    transform: scale(1.05);
+}
+
+/* ----- Animations ----- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ----- MOBILE RESPONSIVENESS (< 600px) ----- */
+@media (max-width: 600px) {
+    .search-form {
+        padding: 16px;
+        gap: 8px;
+    }
+
+    .search-input {
+        padding: 12px 16px;
+        font-size: 0.95rem;
+    }
+
+    .search-results-grid {
+        gap: 16px;
+        padding: 16px;
+        grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 380px) {
+        .search-results-grid {
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        }
+    }
+}

@@ -4,9 +4,9 @@
 
 This project was developed to practice and demonstrate advanced **React** patterns, specifically the **Model-View-Presenter (MVP)** architecture, along with **MobX** for state management and **Firebase** for real-time data persistence.
 
-> 🚧 **Status:** This project is currently in active development. 
+> **Status:** This project is currently in active development. 
 
-## ✨ Key Features
+## Key Features
 
 ### 🪴 Personal Plant Management
 * **Custom Collections:** Users can create and manage their own collections (e.g., "Bedroom Plants").
@@ -18,21 +18,18 @@ This project was developed to practice and demonstrate advanced **React** patter
 * **Care Instructions:** Detailed views showing light requirements, watering intervals, and pruning tips.
 * **Trending Section:** Displays popular plants based on user interactions.
 
-### 🗣️ Interaction
+### Interaction
 * **Rating System:** A custom 1-10 rating logic that calculates average scores dynamically.
 * **Comments:** A section for users to leave notes or feedback on specific plant species.
 
-## 🛠️ Tech Stack
-
-I chose this stack to ensure a scalable and maintainable codebase:
-
+## Tech Stack
 * **Frontend:** React.js, Vite
 * **State Management:** MobX (Reactive state)
 * **Architecture:** Model-View-Presenter (MVP)
 * **Styling:** CSS3 (with Custom Properties for theming)
 * **Backend:** Firebase (Firestore & Authentication)
 
-## 🚀 How to Run Locally
+## How to Run Locally
 
 If you want to check out the code or run it on your machine:
 

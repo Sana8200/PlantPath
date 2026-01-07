@@ -55,15 +55,6 @@ If you want to check out the code or run it on your machine:
     npm run dev
     ```
 
-## 🗺️ Future Roadmap
-
-I am actively working on this project. Here are some of the features I plan to implement next:
-
-* [ ] **Refining the Rating Algorithm:** Improving how average scores are calculated and stored.
-* [ ] **Enhanced Dark Mode:** Polishing the visual theme toggles for better accessibility.
-* [ ] **User Profiles:** Allowing users to customize their profile and view public collections.
-* [ ] **Photo Uploads:** Allowing users to upload photos of their own plants.
-
 ## 👤 Author
 
 **Sana Monhaseri**

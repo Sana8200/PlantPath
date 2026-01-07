@@ -2,9 +2,7 @@ import { CollectionsPage } from "../views/collectionsView";
 import { observer } from "mobx-react-lite";
 import "/src/style/toast.css";
 
-
-export const Collections = observer(function CollectionsRender(model) {
-
+export const Collections = observer(function CollectionsRender({ model }) {
   const isLoggedIn = !!model.user;
 
   const historySubscription = model.wateringHistory;

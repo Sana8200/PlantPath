@@ -61,4 +61,4 @@ If you want to check out the code or run it on your machine:
 This is a personal project created for educational purposes and portfolio demonstration. Feel free to reach out if you have questions about the code!
 
 ## License
-   This project is source-available for viewing only. See [LICENSE](LICENSE) for details.
+   This project is source-available for viewing only. See [LICENSE](LICENSE.md) for details.

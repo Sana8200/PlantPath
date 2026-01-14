@@ -114,7 +114,6 @@ export function connectToPersistence(plantPathModel, metaDataModel) {
           result.docs.forEach(mapDocsToResultCB);
           Object.keys(resultData).forEach(mapResultToCommentArrayCB);
 
-          // Add null checks for scores
           if (resultData.scores && resultData.scores.scores && Array.isArray(resultData.scores.scores)) {
             metaDataModel.setScoreArrayInit(resultData.scores.scores);
           } else {
@@ -335,7 +334,6 @@ export function connectToPersistence(plantPathModel, metaDataModel) {
           return;
         }
         const data = snapshot.data();
-        // FIXED: Add null check for snapshot data
         if (data && data.scores && Array.isArray(data.scores)) {
           metaDataModel.setReadyState(false);
           metaDataModel.setScoreArrayInit(data.scores);
@@ -348,7 +346,7 @@ export function connectToPersistence(plantPathModel, metaDataModel) {
         disposers[i]();
       }
       disposers = [];
-      plantPathModel.setReadyState(false); //makes sure it does not save the cleared model to db
+      plantPathModel.setReadyState(false); //makeing sure it does not save the cleared model to db
       plantPathModel.resetUserData();
       plantPathModel.setSESUState(false);
 

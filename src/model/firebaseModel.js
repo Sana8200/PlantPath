@@ -1,18 +1,26 @@
-import { getFirestore, doc, setDoc, getDoc, collection, getDocs, onSnapshot} from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc,
+  collection,
+  getDocs,
+  onSnapshot
+} from "firebase/firestore";
 import { reaction } from "mobx";
 import app from "./firebaseConfig.js";
-import { Plant } from "/src/model/plant.js";
+import { Plant } from "./Plant.js";
 import { onAuthChange } from "/src/services/AuthService.js";
 
 const db = getFirestore(app);
 let disposers = [];
 
 // Connect model to Firestore persistence
-export function connectToPersistence(PlantPathModel, metaDataModel) {
+export function connectToPersistence(plantPathModel, metaDataModel) {
   onAuthChange(logInOrOutHandlingACB);
   function logInOrOutHandlingACB(user) {
     if (user) {
-      PlantPathModel.setReadyState(false);
+      plantPathModel.setReadyState(false);
       metaDataModel.setReadyState(false);
 
       const userDoc = doc(db, "users", user.uid);
@@ -30,7 +38,7 @@ export function connectToPersistence(PlantPathModel, metaDataModel) {
 
       /* FUNCTIONS */
       /**
-       * Sets the initializing data for the PlantPathModel model, with the data from the database;
+       * Sets the initializing data for the plantPathModel model, with the data from the database;
        * @param {*} result The result from the getDoc function.
        */
       function setInitDataACB(result) {
@@ -72,15 +80,15 @@ export function connectToPersistence(PlantPathModel, metaDataModel) {
                 userData.userCollections[key][plant] = convertToAPIData(resultData[key][plant]);
                 userData.wateringHistory[key][plant] = resultData[key][plant].wateredDates;
               }
-              PlantPathModel.createCollection(key);
+              plantPathModel.createCollection(key);
               Object.keys(resultData[key]).forEach(savePerPlant);
             }
           }
           if (resultData) {
             Object.keys(resultData).forEach(savePerCollectionCB);
-            PlantPathModel.setUserData(userData);
+            plantPathModel.setUserData(userData);
           }
-          PlantPathModel.setReadyState(true);
+          plantPathModel.setReadyState(true);
         } catch (error) {
           console.error("Error initialising LKM values: ", error);
         }
@@ -122,12 +130,12 @@ export function connectToPersistence(PlantPathModel, metaDataModel) {
       }
 
       /**
-       * Gets the persistant parts of the PlantPathModel model.
+       * Gets the persistant parts of the plantPathModel model.
        * @returns An array of all the persistant props.
        */
       function getPersistPropsLKMACB() {
         const allPlants = [];
-        for (const collection of Object.values(PlantPathModel.userCollections)) {
+        for (const collection of Object.values(plantPathModel.userCollections)) {
           for (const plant of Object.values(collection)) {
             allPlants.push(
               plant.id,
@@ -145,7 +153,7 @@ export function connectToPersistence(PlantPathModel, metaDataModel) {
             );
           }
         }
-        for (const collection of Object.values(PlantPathModel.wateringHistory)) {
+        for (const collection of Object.values(plantPathModel.wateringHistory)) {
           for (const plant of Object.values(collection)) {
             allPlants.push(plant.length);
           }
@@ -243,21 +251,21 @@ export function connectToPersistence(PlantPathModel, metaDataModel) {
       }
 
       /**
-       * Saves the PlantPathModel model to the database.
+       * Saves the plantPathModel to the database.
        */
       function saveModelLKMACB() {
         let success = false;
-        if (PlantPathModel.ready == true) {
+        if (plantPathModel.ready == true) {
           const saveObj = {};
           function saveToCollectionsCB(collKey) {
             saveObj[collKey] = {};
-            for (const plant in PlantPathModel.userCollections[collKey]) {
-              saveObj[collKey][plant] = PlantPathModel.userCollections[collKey][plant].makeSaveableObject();
-              saveObj[collKey][plant]["wateredDates"] = PlantPathModel.wateringHistory[collKey][plant] || [];
+            for (const plant in plantPathModel.userCollections[collKey]) {
+              saveObj[collKey][plant] = plantPathModel.userCollections[collKey][plant].makeSaveableObject();
+              saveObj[collKey][plant]["wateredDates"] = plantPathModel.wateringHistory[collKey][plant] || [];
             }
           }
           try {
-            Object.keys(PlantPathModel.userCollections).forEach(saveToCollectionsCB);
+            Object.keys(plantPathModel.userCollections).forEach(saveToCollectionsCB);
             if (Object.keys(saveObj).length > 0) {
               setDoc(userDoc, saveObj, { merge: false });
               success = true;
@@ -292,9 +300,9 @@ export function connectToPersistence(PlantPathModel, metaDataModel) {
       }
 
       function setUpSideEffectLKMACB() {
-        if (PlantPathModel.sideEffectsSetUp == false) {
+        if (plantPathModel.sideEffectsSetUp == false) {
           disposers.push(reaction(getPersistPropsLKMACB, saveModelLKMACB));
-          PlantPathModel.setSESUState(true);
+          plantPathModel.setSESUState(true);
         }
       }
 
@@ -331,9 +339,9 @@ export function connectToPersistence(PlantPathModel, metaDataModel) {
         disposers[i]();
       }
       disposers = [];
-      PlantPathModel.setReadyState(false); //makes sure it does not save the cleared model to db
-      PlantPathModel.resetUserData();
-      PlantPathModel.setSESUState(false);
+      plantPathModel.setReadyState(false); //makes sure it does not save the cleared model to db
+      plantPathModel.resetUserData();
+      plantPathModel.setSESUState(false);
 
       metaDataModel.setReadyState(false);
       metaDataModel.clearData();
@@ -341,7 +349,7 @@ export function connectToPersistence(PlantPathModel, metaDataModel) {
     }
   }
 
-  if (PlantPathModel.user) {
-    logInOrOutHandlingACB(PlantPathModel.user);
+  if (plantPathModel.user) {
+    logInOrOutHandlingACB(plantPathModel.user);
   }
 }

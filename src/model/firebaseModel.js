@@ -91,6 +91,7 @@ export function connectToPersistence(plantPathModel, metaDataModel) {
           plantPathModel.setReadyState(true);
         } catch (error) {
           console.error("Error initialising LKM values: ", error);
+          plantPathModel.setReadyState(true); // Still set ready so app can function
         }
       }
 
@@ -113,11 +114,18 @@ export function connectToPersistence(plantPathModel, metaDataModel) {
           result.docs.forEach(mapDocsToResultCB);
           Object.keys(resultData).forEach(mapResultToCommentArrayCB);
 
-          metaDataModel.setScoreArrayInit(resultData.scores.scores);
+          // Add null checks for scores
+          if (resultData.scores && resultData.scores.scores && Array.isArray(resultData.scores.scores)) {
+            metaDataModel.setScoreArrayInit(resultData.scores.scores);
+          } else {
+            console.warn("No scores found in database, initializing with empty array");
+            metaDataModel.setScoreArrayInit([]);
+          }
 
           metaDataModel.setReadyState(true);
         } catch (error) {
           console.error("Error initialising metadata values: ", error);
+          metaDataModel.setReadyState(true); // FIXED: Still set ready so app can function
         }
       }
 
@@ -269,9 +277,7 @@ export function connectToPersistence(plantPathModel, metaDataModel) {
             if (Object.keys(saveObj).length > 0) {
               setDoc(userDoc, saveObj, { merge: false });
               success = true;
-            } else {
-              console.error("Did not save LKM; saveObj was empty!");
-            }
+            } 
           } catch (error) {
             console.error("Error saving to database: ", error);
             success = false;
@@ -329,9 +335,12 @@ export function connectToPersistence(plantPathModel, metaDataModel) {
           return;
         }
         const data = snapshot.data();
-        metaDataModel.setReadyState(false);
-        metaDataModel.setScoreArrayInit(data.scores);
-        metaDataModel.setReadyState(true);
+        // FIXED: Add null check for snapshot data
+        if (data && data.scores && Array.isArray(data.scores)) {
+          metaDataModel.setReadyState(false);
+          metaDataModel.setScoreArrayInit(data.scores);
+          metaDataModel.setReadyState(true);
+        }
       }
 
     } else {

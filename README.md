@@ -4,7 +4,6 @@
 
 This project was developed to practice and demonstrate advanced **React** patterns, specifically the **Model-View-Presenter (MVP)** architecture, along with **MobX** for state management and **Firebase** for real-time data persistence.
 
-> **Status:** This project is currently in active development. 
 
 ## Key Features
 

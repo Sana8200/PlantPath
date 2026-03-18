@@ -1,6 +1,6 @@
 # 🌿 PlantPath
 
-**PlantPath** is a personal web application that helps plant enthusiasts discover, track, and manage their houseplant collections.
+**PlantPath** is a web application that helps plant enthusiasts discover, track, and manage their houseplant collections.
 
 This project was developed to practice and demonstrate advanced **React** patterns, specifically the **Model-View-Presenter (MVP)** architecture, along with **MobX** for state management and **Firebase** for real-time data persistence.
 
@@ -57,8 +57,6 @@ If you want to check out the code or run it on your machine:
 **Sana Monhaseri**
 
 **Part of group project for Interaction-Porgramming-Dynamic-Web course at KTH**
-
-This is a personal project created for educational purposes and portfolio demonstration. Feel free to reach out if you have questions about the code!
 
 ## License
    This project is source-available for viewing only. See [LICENSE](LICENSE.md) for details.

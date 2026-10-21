@@ -13,14 +13,19 @@
 
 /* ----- Loading State ----- */
 .suspense-spinner {
+    width: 52px;
+    height: 52px;
     margin-bottom: 24px;
-    position: relative;
+    border: 5px solid var(--primary-light, #c8e6c9);
+    border-top-color: var(--primary-main, #4CAF50);
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
 }
 
-.suspense-spinner img {
-    width: 60px;
-    height: 60px;
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .suspense-message {

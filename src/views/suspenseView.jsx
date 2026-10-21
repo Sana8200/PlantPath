@@ -15,12 +15,7 @@ export function SuspenseView({ message, error }) {
 
     return (
         <div className="suspense-container" role="status" aria-live="polite">
-            <div className="suspense-spinner">
-                <img
-                    src="https://brfenergi.se/iprog/loading.gif"
-                    alt="Loading..."
-                />
-            </div>
+            <div className="suspense-spinner" aria-hidden="true"></div>
             <p className="suspense-message">{message || "Loading..."}</p>
         </div>
     );

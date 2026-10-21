@@ -4,8 +4,8 @@ import { makeAutoObservable } from "mobx";
 export class Plant {
   constructor(plantData) {
     this.id = plantData["id"];
-    this.commonName = plantData["Common name"] || "Unkown name";
-    this.latinName = plantData["Latin name"] || "Unkown latin name";
+    this.commonName = plantData["Common name"] || "Unknown name";
+    this.latinName = plantData["Latin name"] || "Unknown latin name";
     this.family = plantData["Family"];
     this.lightTolered = plantData["Light tolered"] || null;
     this.lightIdeal = plantData["Light ideal"] || null;

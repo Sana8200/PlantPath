@@ -93,7 +93,7 @@ export function PlantCard({
             />
             {daysUntilNextWatering !== null && (
               <p className="watering-status-text">
-                {daysUntilNextWatering <= 0 ? "Water today!" : `${daysUntilNextWatering} days left`}
+                {daysUntilNextWatering <= 0 ? "Water today!" : `${daysUntilNextWatering} ${daysUntilNextWatering === 1 ? "day" : "days"} left`}
               </p>
             )}
           </div>

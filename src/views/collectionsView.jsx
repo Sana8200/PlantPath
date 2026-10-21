@@ -30,9 +30,9 @@ export function CollectionsPage(props) {
     if (days === 0) {
       return { text: "🏜️ Needs water today!", class: "status-urgent" };
     } else if (days <= 2) {
-      return { text: `🕒💧 Water in ${days} days`, class: "status-soon" };
+      return { text: `🕒💧 Water in ${days} ${days === 1 ? "day" : "days"}`, class: "status-soon" };
     } else {
-      return { text: `🍀 Water in ${days} days`, class: "status-ok" };
+      return { text: `🍀 Water in ${days} ${days === 1 ? "day" : "days"}`, class: "status-ok" };
     }
   }
 
@@ -68,7 +68,7 @@ export function CollectionsPage(props) {
                     <h3 className="collection-title">
                       {collectionName}
                       <span className="collection-count">
-                        {Object.keys(plants).length} plants
+                        {Object.keys(plants).length} {Object.keys(plants).length === 1 ? "plant" : "plants"}
                       </span>
                     </h3>
                   </div>

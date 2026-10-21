@@ -16,12 +16,12 @@ export function DetailsView(props) {
       return { text: "🏜️ Needs water today!", color: "status-urgent" };
     } else if (props.daysUntilNextWatering <= 2) {
       return {
-        text: `🕒💧 Water in ${props.daysUntilNextWatering} days`,
+        text: `🕒💧 Water in ${props.daysUntilNextWatering} ${props.daysUntilNextWatering === 1 ? "day" : "days"}`,
         color: "status-soon",
       };
     } else {
       return {
-        text: `🍀 Water in ${props.daysUntilNextWatering} days`,
+        text: `🍀 Water in ${props.daysUntilNextWatering} ${props.daysUntilNextWatering === 1 ? "day" : "days"}`,
         color: "status-ok",
       };
     }
@@ -102,7 +102,7 @@ export function DetailsView(props) {
             <span className="details-value rate-details">
               {props.avgRating ? (Math.round(props.avgRating * 10) / 10) : "—"} <span className="math-rate">/ 10</span>
             </span>
-            <span className="details-subvalue">Based on {props.ratingsCount || 0} ratings</span>
+            <span className="details-subvalue">Based on {props.ratingsCount || 0} {props.ratingsCount === 1 ? "rating" : "ratings"}</span>
 
             {/* Rating Input */}
             <div className="details-input-group">

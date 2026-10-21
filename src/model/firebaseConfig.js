@@ -1,9 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getDatabase } from "firebase/database";
 
-
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Firebase credentials are read from .env (see .env.example)
 export const firebaseConfig = {
   apiKey: import.meta.env.VITE_apiKey,
   authDomain: import.meta.env.VITE_authDomain,
@@ -14,8 +12,6 @@ export const firebaseConfig = {
   measurementId: import.meta.env.VITE_measurementId,
 };
 
-
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export const database = getDatabase(app);
 export default app;

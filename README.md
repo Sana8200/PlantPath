@@ -140,11 +140,6 @@ The app runs at **http://localhost:8080**.
 - Plant data and images from the [House Plants API](https://rapidapi.com/mnai01/api/house-plants2) (images © [Tropicopia](https://www.tropicopia.com/))
 - Built as a group project for [DH2642 Interaction Programming and the Dynamic Web](https://www.kth.se/student/kurser/kurs/DH2642) at KTH Royal Institute of Technology
 
-## Author
-
-**Sana Monhaseri** · [@Sana8200](https://github.com/Sana8200)
-
-Questions about the code are welcome. Feel free to open an issue or reach out.
 
 ## License
 

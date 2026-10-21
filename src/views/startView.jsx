@@ -8,7 +8,7 @@ export function StartView(props) {
         <div className="auth-overlay"></div>
         <div className="auth-left-content">
           <div className="auth-logo">🌿</div>
-          <h1 className="auth-title">Welcome to LeafKeeper</h1>
+          <h1 className="auth-title">Welcome to PlantPath</h1>
           <p className="auth-description">
             Your digital gardening companion. Search for plants, create
             collections, and keep track of your plant care schedule effortlessly.
@@ -51,74 +51,3 @@ export function StartView(props) {
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -36,7 +36,7 @@ export function SignupView({ email, password, confirmPassword, loading, error, o
         <div className="auth-overlay"></div>
         <div className="auth-left-content">
           <div className="auth-logo">🌿</div>
-          <h1 className="auth-title">Join LeafKeeper</h1>
+          <h1 className="auth-title">Join PlantPath</h1>
           <p className="auth-description">
             Start your journey today. Track your plants, get reminders, and watch your garden thrive.
           </p>

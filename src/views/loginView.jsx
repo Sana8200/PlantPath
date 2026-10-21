@@ -89,7 +89,7 @@ export function LoginView({ email, password, loading, error, onEmailChange, onPa
           </form>
 
           <p className="login-signup-switch">
-            New to LeafKeeper? <a onClick={onSwitchToSignup}>Create an account</a>
+            New to PlantPath? <a onClick={onSwitchToSignup}>Create an account</a>
           </p>
           <p className="login-signup-switch">Forgot password?! <a onClick={onResetPassword}>Reset Password</a></p>
         </div>

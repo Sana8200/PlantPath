@@ -5,7 +5,7 @@ export function TopBar(props) {
     return (
         <header className="topbar">
             <div className="topbar-header">
-                <h1>🌿 LeafKeeper</h1>
+                <h1>🌿 PlantPath</h1>
 
                 <nav className="topbar-nav">
                     <a className="nav-link" onClick={props.onNavigateSearch}>

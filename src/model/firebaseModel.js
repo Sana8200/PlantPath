@@ -9,7 +9,7 @@ import {
 } from "firebase/firestore";
 import { reaction } from "mobx";
 import app from "./firebaseConfig.js";
-import { Plant } from "./Plant.js";
+import { Plant } from "./plant.js";
 import { onAuthChange } from "/src/services/AuthService.js";
 
 const db = getFirestore(app);

@@ -1,5 +1,5 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import { Plant } from "./Plant";
+import { Plant } from "./plant.js";
 
 class MetaDataModel {
   comments = {}; //A dictionary that acts as an array, but with the plant ID as the index.

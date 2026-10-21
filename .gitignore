@@ -133,3 +133,5 @@ dist
 .DS_Store
 node_modules/
 node_modules
+# Firebase CLI local cache
+.firebase/

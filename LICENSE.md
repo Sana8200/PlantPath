@@ -1,4 +1,4 @@
-MIT License with Additional Restrictions
+View-Only License
 
 Copyright (c) 2025 Sana Monhaseri 
 
